@@ -11,3 +11,10 @@ echo
 echo RUNNING rubysonar ON geocoder.rb
 java -cp /home/sqs/src/github.com/yinwang0/rubysonar/target/rubysonar-0.1-SNAPSHOT.jar org.yinwang.rubysonar.JSONDump geocoder.rb $HOME/.rvm/gems/ruby-2.0.0-p353/gems/geocoder-1.1.9/lib /tmp/FOO && \
 python -mjson.tool /tmp/FOO-ref
+
+
+echo
+echo
+echo
+
+grep 'gems/geocoder' /tmp/FOO-ref || echo FAIL: Did not find any refs to symbols defined in the geocoder gem
